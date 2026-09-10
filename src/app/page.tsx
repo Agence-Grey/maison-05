@@ -21,9 +21,9 @@ export default function Home() {
         <Philosophy />
         <ReturnToSelf />
         <Confidence />
+        <FinalCta />
         <Community />
         <Disciplines />
-        <FinalCta />
       </main>
       <Footer />
     </div>
