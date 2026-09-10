@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { disciplinesContent } from "@/data/content";
+import DisciplinesCarousel from "./DisciplinesCarousel";
 import Reveal from "./Reveal";
 
 export default function Disciplines() {
@@ -19,35 +19,7 @@ export default function Disciplines() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {disciplinesContent.disciplines.map((discipline, i) => (
-            <Reveal key={discipline.title} delay={i * 100}>
-              <article className="group relative h-[420px] overflow-hidden rounded-2xl">
-                <Image
-                  src={discipline.image}
-                  alt={discipline.title}
-                  width={900}
-                  height={1200}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-bordeaux/90 via-bordeaux/40 to-bordeaux/20 transition-opacity duration-500 group-hover:from-bordeaux/95" />
-
-                <div className="absolute inset-0 flex items-center justify-center px-4">
-                  <h3 className="font-display text-5xl tracking-wider text-cream uppercase md:text-6xl">
-                    {discipline.title}
-                  </h3>
-                </div>
-
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="font-serif text-xl text-cream/90">{discipline.title}</p>
-                  <p className="mt-1 text-xs uppercase tracking-wider text-cream/60">
-                    {discipline.tagline}
-                  </p>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        <DisciplinesCarousel disciplines={disciplinesContent.disciplines} />
       </div>
     </section>
   );

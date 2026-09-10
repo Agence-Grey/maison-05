@@ -30,6 +30,7 @@ test("composants visibles", async ({ page }) => {
   await expect(page.locator("header")).toBeVisible();
   await expect(page.locator("footer")).toBeVisible();
 
-  await expect(page.getByRole("heading", { name: "Pilates Reformer" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Pilates Flow" })).toBeVisible();
+  await expect(page.getByText("Pilates Mat")).toHaveCount(0);
   await expect(page.locator("text=Ouverture en octobre 2026")).toBeVisible();
 });

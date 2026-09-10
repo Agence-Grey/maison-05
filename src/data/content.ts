@@ -114,8 +114,10 @@ export interface FinalCtaContent {
 export interface FooterContent {
   description: string;
   nav: NavLink[];
+  legal: NavLink[];
   contact: {
     email: string;
+    phone: { label: string; href: string };
     location: string;
   };
 }
@@ -247,39 +249,33 @@ export const disciplinesContent: DisciplinesContent = {
     "Du renforcement à la détente, chaque séance est une parenthèse adaptée à votre rythme et à vos envies.",
   disciplines: [
     {
-      title: "Pilates Reformer",
-      text: "Sur machine, un renforcement profond et un alignement précis pour toute la silhouette.",
-      tagline: "Renforcement · Posture · Alignement",
-      image: "/Screenshot_2026-09-06_20-51-34.png",
-    },
-    {
-      title: "Pilates Mat",
-      text: "Les fondations au sol : contrôle, précision et travail de la ceinture profonde.",
-      tagline: "Maîtrise du corps · Sculpture · Précision",
-      image: "/Screenshot_2026-09-06_20-51-44.png",
-    },
-    {
       title: "Pilates Flow",
       text: "Des enchaînements fluides où la respiration guide chaque mouvement.",
       tagline: "Fluidité · Respiration · Mouvement",
       image: "/Screenshot_2026-09-06_20-51-55.png",
     },
     {
-      title: "Stretching & Mobilité",
-      text: "Relâcher les tensions, gagner en souplesse et récupérer en douceur.",
-      tagline: "Souplesse · Détente · Récupération",
+      title: "Pilates Strong",
+      text: "Un travail en profondeur sur machine pour renforcer la silhouette, gagner en tonicité et en puissance.",
+      tagline: "Renforcement · Tonus · Puissance",
+      image: "/Screenshot_2026-09-06_20-51-34.png",
+    },
+    {
+      title: "Pilates Senior",
+      text: "Des séances douces et adaptées pour entretenir mobilité, équilibre et vitalité au fil des années.",
+      tagline: "Douceur · Mobilité · Équilibre",
       image: "/Screenshot_2026-09-06_20-52-13.png",
     },
     {
-      title: "Hot Pilates",
-      text: "Des séances dynamiques en salle chauffée pour assouplir les muscles, transpirer et se recentrer.",
-      tagline: "Intensité · Chaleur · Dépassement",
+      title: "Method 05",
+      text: "La signature Maison 05 : une méthode exclusive mêlant précision du Reformer et intention du mouvement.",
+      tagline: "Signature · Précision · Intention",
       image: "/Screenshot_2026-09-06_20-52-21.png",
     },
     {
-      title: "Cardio Pilates",
-      text: "Des enchaînements rythmés qui élèvent le rythme cardiaque pour tonifier, endurer et brûler des calories.",
-      tagline: "Énergie · Endurance · Dynamisme",
+      title: "Pilates Pulse",
+      text: "Des enchaînements dynamiques au tempo soutenu pour élever le rythme et brûler les calories.",
+      tagline: "Rythme · Énergie · Cardio",
       image: "/Screenshot_2026-09-06_20-52-40.png",
     },
   ],
@@ -305,8 +301,14 @@ export const footerContent: FooterContent = {
     { href: "#partage", label: "Partage" },
     { href: "#disciplines", label: "Disciplines" },
   ],
+  legal: [
+    { href: "/mentions-legales", label: "Mentions légales" },
+    { href: "/politique-de-confidentialite", label: "Politique de confidentialité" },
+    { href: "/politique-cookies", label: "Politique cookies" },
+  ],
   contact: {
-    email: "bonjour@maison05.fr",
+    email: "Manon.jacquier@pilatesmaison05.com",
+    phone: { label: "06 01 05 21 60", href: "tel:+33601052160" },
     location: "Bourg-en-Bresse",
   },
 };
