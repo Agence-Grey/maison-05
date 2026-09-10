@@ -286,7 +286,7 @@ export const finalCtaContent: FinalCtaContent = {
   titleLine1: "Votre temps. Votre espace.",
   titleLine2: "Votre maison.",
   description:
-    "Maison 05 vous ouvre ses portes pour vous offrir une parenthèse dans votre quotidien. Un lieu pour bouger, respirer, échanger et se retrouver.",
+    "Maison 05 vous ouvre ses portes pour vous offrir une parenthèse dans votre quotidien. Entre se sentir bien et une maison de partage : un lieu pour bouger, respirer, échanger et se retrouver.",
   ctaPrimary: { label: "Réserver maintenant", href: "#contact" },
   ctaSecondary: { label: "Découvrir la maison", href: "#maison" },
 };
