@@ -10,14 +10,16 @@ interface DisciplinesCarouselProps {
 
 export default function DisciplinesCarousel({ disciplines }: DisciplinesCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef(0);
   const [active, setActive] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const scrollTo = useCallback(
     (index: number) => {
       const track = trackRef.current;
       if (!track) return;
 
-      const clamped = Math.max(0, Math.min(index, disciplines.length - 1));
+      const clamped = ((index % disciplines.length) + disciplines.length) % disciplines.length;
       const slide = track.children[clamped] as HTMLElement | undefined;
       if (!slide) return;
 
@@ -35,7 +37,9 @@ export default function DisciplinesCarousel({ disciplines }: DisciplinesCarousel
 
     const gap = 24;
     const step = slide.offsetWidth + gap;
-    setActive(Math.round(track.scrollLeft / step));
+    const index = Math.round(track.scrollLeft / step);
+    activeRef.current = index;
+    setActive(index);
   }, []);
 
   useEffect(() => {
@@ -45,8 +49,26 @@ export default function DisciplinesCarousel({ disciplines }: DisciplinesCarousel
     return () => track.removeEventListener("scroll", onScroll);
   }, [onScroll]);
 
+  useEffect(() => {
+    if (isPaused) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const interval = window.setInterval(() => {
+      const next = activeRef.current >= disciplines.length - 1 ? 0 : activeRef.current + 1;
+      scrollTo(next);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, [isPaused, disciplines.length, scrollTo]);
+
   return (
-    <div className="relative mt-16">
+    // biome-ignore lint/a11y/noStaticElementInteractions: Le survol doit mettre en pause le défilement automatique du carrousel
+    <div
+      className="relative mt-16"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div
         ref={trackRef}
         className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -101,9 +123,8 @@ export default function DisciplinesCarousel({ disciplines }: DisciplinesCarousel
           <button
             type="button"
             onClick={() => scrollTo(active - 1)}
-            disabled={active === 0}
             aria-label="Cours précédent"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/30 text-cream transition-colors hover:border-curry hover:text-curry-light disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/30 text-cream transition-colors hover:border-curry hover:text-curry-light"
           >
             <svg
               width="18"
@@ -122,9 +143,8 @@ export default function DisciplinesCarousel({ disciplines }: DisciplinesCarousel
           <button
             type="button"
             onClick={() => scrollTo(active + 1)}
-            disabled={active === disciplines.length - 1}
             aria-label="Cours suivant"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/30 text-cream transition-colors hover:border-curry hover:text-curry-light disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/30 text-cream transition-colors hover:border-curry hover:text-curry-light"
           >
             <svg
               width="18"
