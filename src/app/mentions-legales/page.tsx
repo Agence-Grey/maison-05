@@ -17,7 +17,7 @@ export default function MentionsLegalesPage() {
         <ul className="list-inside list-disc space-y-2">
           <li>Raison sociale : [Raison sociale]</li>
           <li>Forme juridique : [Forme juridique]</li>
-          <li>SIRET : [Numéro SIRET]</li>
+          <li>SIRET : 104 683 388 00011</li>
           <li>Adresse : [Adresse du siège]</li>
           <li>Téléphone : 06 01 05 21 60</li>
           <li>Email : Manon.jacquier@pilatesmaison05.com</li>

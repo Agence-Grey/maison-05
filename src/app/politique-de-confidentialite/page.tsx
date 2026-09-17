@@ -13,7 +13,7 @@ export default function PolitiqueConfidentialitePage() {
       <LegalSection title="Responsable du traitement">
         <p>
           Maison 05, représentée par Manon Jacquier, est responsable du traitement des données
-          collectées via le site pilatesmaison05.com.
+          collectées via le site pilatesmaison05.com. SIRET : 104 683 388 00011.
         </p>
         <p>
           Contact :{" "}
