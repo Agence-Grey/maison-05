@@ -18,15 +18,15 @@ export default function Tarifs() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
-          <Reveal>
-            <div className="rounded-2xl border border-bordeaux/10 bg-white/60 p-8 backdrop-blur-sm">
+        <div className="mt-16 grid gap-8 lg:grid-cols-3 lg:items-stretch">
+          <Reveal className="h-full">
+            <div className="flex h-full flex-col rounded-2xl border border-bordeaux/10 bg-white/60 p-8 backdrop-blur-sm">
               <h3 className="font-serif text-2xl text-bordeaux">À l&apos;unité</h3>
-              <div className="mt-6 space-y-4">
+              <div className="mt-6 space-y-5">
                 {tarifsContent.unitPrices.map((item) => (
                   <div key={item.label}>
                     <div className="flex items-baseline justify-between">
-                      <span className="text-bordeaux/85">{item.label}</span>
+                      <span className="font-medium text-bordeaux">{item.label}</span>
                       <span className="font-serif text-2xl text-curry-dark">{item.price}</span>
                     </div>
                     {item.detail && <p className="mt-1 text-sm text-bordeaux/60">{item.detail}</p>}
@@ -36,8 +36,8 @@ export default function Tarifs() {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
-            <div className="rounded-2xl border-2 border-curry bg-white p-8 shadow-lg">
+          <Reveal delay={120} className="h-full">
+            <div className="flex h-full flex-col rounded-2xl border border-bordeaux/10 bg-white/60 p-8 backdrop-blur-sm">
               <h3 className="font-serif text-2xl text-bordeaux">Packs</h3>
               <div className="mt-6 space-y-5">
                 {tarifsContent.packs.map((pack) => (
@@ -55,8 +55,8 @@ export default function Tarifs() {
             </div>
           </Reveal>
 
-          <Reveal delay={240}>
-            <div className="rounded-2xl border border-bordeaux/10 bg-white/60 p-8 backdrop-blur-sm">
+          <Reveal delay={240} className="h-full">
+            <div className="flex h-full flex-col rounded-2xl border border-bordeaux/10 bg-white/60 p-8 backdrop-blur-sm">
               <h3 className="font-serif text-2xl text-bordeaux">Abonnements / mois</h3>
               <div className="mt-6 space-y-5">
                 {tarifsContent.abonnements.map((abo) => (
