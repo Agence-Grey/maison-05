@@ -128,6 +128,7 @@ export const navLinks: NavLink[] = [
   { href: "#confiance", label: "Confiance" },
   { href: "#partage", label: "Partage" },
   { href: "#disciplines", label: "Disciplines" },
+  { href: "#tarifs", label: "Tarifs & Planning" },
 ];
 
 export const heroContent: HeroContent = {
@@ -171,8 +172,8 @@ export const philosophyContent: PhilosophyContent = {
   paragraph2:
     "Ici, le Pilates Reformer devient bien plus qu'une séance de sport. C'est une parenthèse : un moment pour ralentir, respirer, se reconnecter à son corps et oublier, le temps d'une séance, tout ce qui se passe à l'extérieur.",
   image: {
-    src: "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&q=80&w=1400",
-    alt: "Séance de Pilates Reformer chez Maison 05",
+    src: "/presentation.jpg",
+    alt: "Maison 05, studio de Pilates Reformer à Bourg-en-Bresse",
     width: 1400,
     height: 1000,
   },
@@ -291,6 +292,216 @@ export const finalCtaContent: FinalCtaContent = {
   ctaSecondary: { label: "Découvrir la maison", href: "#maison" },
 };
 
+export interface TarifItem {
+  label: string;
+  price: string;
+  detail?: string;
+}
+
+export interface TarifPack {
+  label: string;
+  price: string;
+  perSession?: string;
+}
+
+export interface Abonnement {
+  name: string;
+  price: string;
+  detail: string;
+}
+
+export interface TarifsContent {
+  label: string;
+  title: string;
+  titleHighlight: string;
+  description: string;
+  unitPrices: TarifItem[];
+  packs: TarifPack[];
+  packDecouverte: { label: string; price: string; detail: string };
+  abonnements: Abonnement[];
+  seniorNote: string;
+}
+
+export interface PlanningSlot {
+  time: string;
+  monday: string;
+  tuesday: string;
+  wednesday: string;
+  thursday: string;
+  friday: string;
+  saturday: string;
+  sunday: string;
+}
+
+export interface CourseDescription {
+  name: string;
+  description: string;
+}
+
+export interface PlanningContent {
+  label: string;
+  title: string;
+  titleHighlight: string;
+  description: string;
+  schedule: PlanningSlot[];
+  courses: CourseDescription[];
+}
+
+export const tarifsContent: TarifsContent = {
+  label: "Nos tarifs",
+  title: "Des formules",
+  titleHighlight: "adaptées à vos envies",
+  description:
+    "Choisissez la formule qui vous correspond : à la séance, en pack ou en abonnement mensuel.",
+  unitPrices: [
+    { label: "Séance à l'unité", price: "28 €" },
+    { label: "Tarif étudiant", price: "24 €", detail: "sur présentation d'un justificatif" },
+  ],
+  packs: [
+    { label: "Pack 5 séances", price: "130 €", perSession: "soit 26 € la séance" },
+    { label: "Pack 10 séances", price: "240 €", perSession: "soit 24 € la séance" },
+    { label: "Pack 20 séances", price: "450 €", perSession: "soit 22,50 € la séance" },
+  ],
+  packDecouverte: {
+    label: "Pack découverte",
+    price: "65 €",
+    detail: "3 séances · Valable 1 mois",
+  },
+  abonnements: [
+    { name: "Essentielle", price: "99 €", detail: "4 cours / mois" },
+    { name: "Signature Maison 05", price: "179 €", detail: "8 cours / mois" },
+    { name: "Illimité", price: "249 €", detail: "cours illimités" },
+  ],
+  seniorNote: "Tarif Sénior : 24 € la séance · réservé au 60 ans et +",
+};
+
+export const planningContent: PlanningContent = {
+  label: "Planning",
+  title: "Trouvez votre",
+  titleHighlight: "créneau",
+  description:
+    "Du lundi au samedi, des cours tout au long de la journée pour s'adapter à votre rythme.",
+  schedule: [
+    {
+      time: "07:30 - 08:20",
+      monday: "Flow",
+      tuesday: "Strong",
+      wednesday: "Pulse",
+      thursday: "",
+      friday: "Method 05",
+      saturday: "FERMÉ",
+      sunday: "FERMÉ",
+    },
+    {
+      time: "08:30 - 09:20",
+      monday: "Strong",
+      tuesday: "Method 05",
+      wednesday: "Flow",
+      thursday: "",
+      friday: "Pulse",
+      saturday: "Pulse",
+      sunday: "Flow",
+    },
+    {
+      time: "09:30 - 10:20",
+      monday: "Senior",
+      tuesday: "",
+      wednesday: "",
+      thursday: "",
+      friday: "",
+      saturday: "Method 05",
+      sunday: "Strong",
+    },
+    {
+      time: "10:30 - 11:20",
+      monday: "",
+      tuesday: "Senior",
+      wednesday: "",
+      thursday: "Senior",
+      friday: "",
+      saturday: "Strong",
+      sunday: "Pulse",
+    },
+    {
+      time: "12:20 - 13:10",
+      monday: "Method 05",
+      tuesday: "Pulse",
+      wednesday: "Strong",
+      thursday: "Method 05",
+      friday: "Strong",
+      saturday: "Method 05",
+      sunday: "Method 05",
+    },
+    {
+      time: "16:30 - 17:20",
+      monday: "Pulse",
+      tuesday: "Flow",
+      wednesday: "Strong",
+      thursday: "Method 05",
+      friday: "Flow",
+      saturday: "FERMÉ",
+      sunday: "",
+    },
+    {
+      time: "17:30 - 18:20",
+      monday: "Strong",
+      tuesday: "Method 05",
+      wednesday: "Pulse",
+      thursday: "Flow",
+      friday: "Strong",
+      saturday: "FERMÉ",
+      sunday: "",
+    },
+    {
+      time: "18:30 - 19:20",
+      monday: "Method 05",
+      tuesday: "Pulse",
+      wednesday: "Flow",
+      thursday: "Strong",
+      friday: "Pulse",
+      saturday: "FERMÉ",
+      sunday: "",
+    },
+    {
+      time: "19:30 - 20:20",
+      monday: "Flow",
+      tuesday: "Strong",
+      wednesday: "Method 05",
+      thursday: "Pulse",
+      friday: "Method 05",
+      saturday: "FERMÉ",
+      sunday: "",
+    },
+  ],
+  courses: [
+    {
+      name: "Reformer Flow",
+      description:
+        "Cours d'intensité modérée, idéal pour découvrir ou approfondir la méthode Pilates sur Reformer. Mouvements fluides et contrôlés pour synchroniser respiration et exercices, améliorer posture, gainage, mobilité et conscience corporelle.",
+    },
+    {
+      name: "Reformer Strong",
+      description:
+        "Cours dynamique et intense pour tonifier l'ensemble du corps. Enchaînements rythmés sollicitant bras, abdominaux et jambes pour développer force, endurance et définition musculaire.",
+    },
+    {
+      name: "Reformer Pulse",
+      description:
+        "Le plus intense de la gamme. Pilates contemporain associant Reformer, exercices cardio dynamiques, sauts sur Jumpboard et petits accessoires (haltères) pour repousser vos limites. Endurance, force et dépense énergétique maximale.",
+    },
+    {
+      name: "Reformer Method 05",
+      description:
+        "Le cours emblématique du studio. Entièrement dédié au renforcement des fessiers et de la sangle abdominale, combinant Pilates contemporain et petits accessoires (haltères, élastiques, ballon). Sculpter la silhouette et développer des fessiers plus forts.",
+    },
+    {
+      name: "Reformer Senior",
+      description:
+        "Conçu pour entretenir mobilité, force et équilibre en toute sécurité. Exercices doux et adaptés pour renforcer progressivement la musculature, améliorer la souplesse et gagner en aisance dans les gestes du quotidien.",
+    },
+  ],
+};
+
 export const footerContent: FooterContent = {
   description:
     "Studio de Pilates Reformer à Bourg-en-Bresse. Une parenthèse pensée pour vous — move with intention.",
@@ -300,6 +511,7 @@ export const footerContent: FooterContent = {
     { href: "#confiance", label: "Confiance" },
     { href: "#partage", label: "Partage" },
     { href: "#disciplines", label: "Disciplines" },
+    { href: "#tarifs", label: "Tarifs & Planning" },
   ],
   legal: [
     { href: "/mentions-legales", label: "Mentions légales" },

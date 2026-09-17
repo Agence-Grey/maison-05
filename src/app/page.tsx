@@ -8,7 +8,9 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Opening from "@/components/Opening";
 import Philosophy from "@/components/Philosophy";
+import Planning from "@/components/Planning";
 import ReturnToSelf from "@/components/ReturnToSelf";
+import Tarifs from "@/components/Tarifs";
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
         <FinalCta />
         <Community />
         <Disciplines />
+        <Tarifs />
+        <Planning />
       </main>
       <Footer />
     </div>

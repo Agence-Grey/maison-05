@@ -52,6 +52,21 @@ export default function MentionsLegalesPage() {
         </p>
       </LegalSection>
 
+      <LegalSection title="Conception du site">
+        <p>
+          Ce site a été conçu et développé par{" "}
+          <a
+            href="https://agence-grey.fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-curry-dark underline underline-offset-2"
+          >
+            L&apos;Agence Grey
+          </a>
+          .
+        </p>
+      </LegalSection>
+
       <LegalSection title="Contact">
         <p>
           Pour toute question relative au site, vous pouvez nous écrire à{" "}
