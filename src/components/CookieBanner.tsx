@@ -1,25 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 
 const STORAGE_KEY = "maison05-cookie-consent";
+const CONSENT_EVENT = "maison05:cookie-consent";
+
+function subscribe(callback: () => void) {
+  const notify = () => callback();
+  window.addEventListener("storage", notify);
+  window.addEventListener(CONSENT_EVENT, notify);
+  return () => {
+    window.removeEventListener("storage", notify);
+    window.removeEventListener(CONSENT_EVENT, notify);
+  };
+}
+
+function getSnapshot() {
+  try {
+    return window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function getServerSnapshot() {
+  return null;
+}
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+  const stored = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored !== "accepted" && stored !== "refused") {
-      setVisible(true);
-    }
+  const decide = useCallback((value: "accepted" | "refused") => {
+    window.localStorage.setItem(STORAGE_KEY, value);
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   }, []);
 
-  const decide = (value: "accepted" | "refused") => {
-    window.localStorage.setItem(STORAGE_KEY, value);
-    setVisible(false);
-  };
-
-  if (!visible) return null;
+  if (stored !== null) return null;
 
   return (
     <div
