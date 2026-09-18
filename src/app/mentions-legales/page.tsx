@@ -18,7 +18,7 @@ export default function MentionsLegalesPage() {
           <li>Raison sociale : Maison 05</li>
           <li>Forme juridique : SAS</li>
           <li>SIRET : 104 683 388 00011</li>
-          <li>Adresse : [Adresse du siège]</li>
+          <li>Adresse : 4 Avenue du Champ de Foire, 01000 Bourg-en-Bresse</li>
           <li>Téléphone : 06 01 05 21 60</li>
           <li>Email : Manon.jacquier@pilatesmaison05.com</li>
         </ul>
