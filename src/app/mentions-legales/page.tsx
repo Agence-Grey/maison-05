@@ -15,8 +15,8 @@ export default function MentionsLegalesPage() {
           <strong>Manon Jacquier</strong>.
         </p>
         <ul className="list-inside list-disc space-y-2">
-          <li>Raison sociale : [Raison sociale]</li>
-          <li>Forme juridique : [Forme juridique]</li>
+          <li>Raison sociale : Maison 05</li>
+          <li>Forme juridique : SAS</li>
           <li>SIRET : 104 683 388 00011</li>
           <li>Adresse : [Adresse du siège]</li>
           <li>Téléphone : 06 01 05 21 60</li>
