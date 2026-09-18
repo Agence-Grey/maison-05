@@ -1,12 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { type NavLink, navLinks } from "@/data/content";
 
 export default function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const toHref = (href: string) => (pathname === "/" ? href : `/${href}`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -24,7 +28,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-10">
-        <a href="#top" className="flex items-center gap-3">
+        <a href={toHref("#top")} className="flex items-center gap-3">
           <Image
             src="/logo-curry.png"
             alt="Maison 05"
@@ -39,7 +43,7 @@ export default function Header() {
           {navLinks.map((link: NavLink) => (
             <a
               key={link.href}
-              href={link.href}
+              href={toHref(link.href)}
               className="text-sm uppercase tracking-[0.18em] text-cream/80 transition-colors hover:text-curry-light"
             >
               {link.label}
@@ -49,7 +53,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <a
-            href="#contact"
+            href={toHref("#contact")}
             className="hidden rounded-full bg-curry px-6 py-2.5 text-sm font-medium tracking-wide text-bordeaux-dark transition-all hover:bg-curry-light sm:inline-flex"
           >
             Réserver
@@ -82,16 +86,15 @@ export default function Header() {
           {navLinks.map((link: NavLink) => (
             <a
               key={link.href}
-              href={link.href}
+              href={toHref(link.href)}
               onClick={() => setOpen(false)}
               className="block border-b border-cream/10 py-4 text-sm uppercase tracking-[0.18em] text-cream/85"
             >
               {link.label}
             </a>
           ))}
-          {/* biome-ignore lint/a11y/useValidAnchor: Navigation vers section contact */}
           <a
-            href="#contact"
+            href={toHref("#contact")}
             onClick={() => setOpen(false)}
             className="mt-4 block rounded-full bg-curry px-6 py-3 text-center text-sm font-medium text-bordeaux-dark"
           >

@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { footerContent } from "@/data/content";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const toHref = (href: string) => (pathname === "/" ? href : `/${href}`);
+
   return (
     <footer className="bg-bordeaux-dark py-16">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
@@ -24,7 +30,7 @@ export default function Footer() {
             {footerContent.nav.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={toHref(link.href)}
                 className="text-sm text-cream/70 transition-colors hover:text-curry-light"
               >
                 {link.label}
