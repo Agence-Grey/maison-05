@@ -372,7 +372,7 @@ export const tarifsContent: TarifsContent = {
     { name: "Signature Maison 05", price: "179 €", detail: "8 cours / mois" },
     { name: "Illimité", price: "249 €", detail: "cours illimités" },
   ],
-  seniorNote: "Tarif Sénior : 24 € la séance · réservé au 60 ans et +",
+  seniorNote: "Tarif Sénior : 24 € la séance · réservé aux 60 ans et +",
 };
 
 export const planningContent: PlanningContent = {
@@ -389,8 +389,8 @@ export const planningContent: PlanningContent = {
       wednesday: "Pulse",
       thursday: "",
       friday: "Method 05",
-      saturday: "FERMÉ",
-      sunday: "FERMÉ",
+      saturday: "",
+      sunday: "",
     },
     {
       time: "08:30 - 09:20",
@@ -439,7 +439,7 @@ export const planningContent: PlanningContent = {
       wednesday: "Strong",
       thursday: "Method 05",
       friday: "Flow",
-      saturday: "FERMÉ",
+      saturday: "",
       sunday: "",
     },
     {
@@ -449,7 +449,7 @@ export const planningContent: PlanningContent = {
       wednesday: "Pulse",
       thursday: "Flow",
       friday: "Strong",
-      saturday: "FERMÉ",
+      saturday: "",
       sunday: "",
     },
     {
@@ -459,7 +459,7 @@ export const planningContent: PlanningContent = {
       wednesday: "Flow",
       thursday: "Strong",
       friday: "Pulse",
-      saturday: "FERMÉ",
+      saturday: "",
       sunday: "",
     },
     {
@@ -469,7 +469,7 @@ export const planningContent: PlanningContent = {
       wednesday: "Method 05",
       thursday: "Pulse",
       friday: "Method 05",
-      saturday: "FERMÉ",
+      saturday: "",
       sunday: "",
     },
   ],

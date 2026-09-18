@@ -12,7 +12,6 @@ const days = [
 ];
 
 function getCourseStyle(course: string): string {
-  if (course === "FERMÉ") return "text-bordeaux/40 italic";
   if (!course) return "";
   return "font-medium text-bordeaux";
 }
