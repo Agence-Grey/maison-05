@@ -12,7 +12,7 @@ export default function Hero() {
         poster="/logo-bordeaux.png"
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/hero.mp4" type="video/mp4" />
+        <source src="/202609181252.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-b from-bordeaux/70 via-bordeaux/50 to-bordeaux/90" />
 
